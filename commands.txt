@@ -1,0 +1,7 @@
+java -p ./mods -m rkbalgi.helloworld
+
+javac -d ./out ./src/rkbalgi.helloworld/module-info.java ./src/rkbalgi.helloworld/com/github.com/rkbalgi/helloworld/HelloWorld.java 
+
+jar -cfe mods/rkbalgi.helloworld.^Cr com.github.rkbalgi.helloworld.HelloWorld -C ./out/ .
+jlink -p ./mods/:$JAVA_HOME/jmods --add-modules rkbalgi.helloworld --launcher hello=rkbalgi.helloworld --output ./helloworld_image/
+
